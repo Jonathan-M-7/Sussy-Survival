@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     float vertical;
     public float speed = 3.0f;
 
+    public Transform firePoint;
     public GameObject projectilePrefab;
     Rigidbody2D rigidbody2d;
 
@@ -27,7 +28,10 @@ public class Player : MonoBehaviour
 
         Vector2 move = new Vector2(horizontal, vertical);
 
-       
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
     }
 
     void FixedUpdate()
@@ -39,5 +43,8 @@ public class Player : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
-    
+    void Launch()
+    {
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+    }
 }
