@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public Transform firePoint;
     public GameObject projectilePrefab;
     Rigidbody2D rigidbody2d;
+    
+    private bool m_FacingRight = true;
 
     Vector2 lookDirection = new Vector2(1, 0);
 
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
             Launch();
         }
     }
-
+      
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
@@ -46,5 +48,12 @@ public class Player : MonoBehaviour
     void Launch()
     {
         Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+    }
+
+    private void Flip()
+    {
+        m_FacingRight = !m_FacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 }
