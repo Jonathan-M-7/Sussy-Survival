@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
 
     Animator animator;
 
-    private bool m_FacingRight = true;
-
     Vector2 lookDirection = new Vector2(1, 0);
 
     // Start is called before the first frame update
@@ -43,9 +41,9 @@ public class Player : MonoBehaviour
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);
 
-        Vector2 move = new Vector2(horizontal, vertical);
+        new Vector2(horizontal, vertical);
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown("Fire1"))
         {
             Launch();
         }
@@ -65,10 +63,5 @@ public class Player : MonoBehaviour
         Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 
-    private void Flip()
-    {
-        m_FacingRight = !m_FacingRight;
-
-        transform.Rotate(0f, 180f, 0f);
-    }
+    
 }
