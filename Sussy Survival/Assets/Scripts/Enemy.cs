@@ -5,33 +5,25 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public float speed = .25f;
-    private Rigidbody2D enemyRB;
-    private GameObject player;
-    public Transform playerObj;
+    public float speed;
+    public float stoppingDistance;
+
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyRB = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Player");
+        target = GameObject.FindGameObjectsWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame*1
     void Update()
     {
-        Vector2 lookDirection = (player.transform.position - transform.position).normalized;
-
-        enemyRB.AddForce(lookDirection * speed);
-
-        transform.LookAt(playerObj);
-
+        if(Vector2.Distance(transform.position, target.position) > stoppingDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
-        
-    }
+    
 }
