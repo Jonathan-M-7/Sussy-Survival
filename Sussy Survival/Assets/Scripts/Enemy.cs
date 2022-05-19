@@ -5,24 +5,33 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public float speed;
-    public float stoppingDistance;
-
-    private Transform target;
-
+    public float moveSpeed = 5f;
+    public Transform player;
+    private Rigidbody2D rb;
+    private Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectsWithTag("Player").GetComponent<Transform>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame*1
     void Update()
     {
-        if(Vector2.Distance(transform.position, target.position) > stoppingDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
+        Vector3 direction = player.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+        direction.Normalize();
+        movement = direction;
+    }
+
+    private void FixedUpdate()
+    {
+        moveCharacter(movement);
+    }
+    void moveCharacter(Vector2 direction)
+    {
+        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
     }
 
     

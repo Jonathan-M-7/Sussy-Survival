@@ -199,12 +199,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.737549}
+  m_LocalScale: {x: 0.6737549, y: 0.71184665, z: 0.6737549}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1938116440}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032283132
 GameObject:
@@ -420,13 +420,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938116437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: -0.63, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4842193, y: 1.404797, z: 1.4842193}
   m_Children:
   - {fileID: 1032283133}
   - {fileID: 1915972124}
+  - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1938116441
 Rigidbody2D:
@@ -475,17 +476,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -544784372240813908, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1938116440}
+    - target: {fileID: -544784372240813908, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -544784372240813908, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
+      propertyPath: stoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 202171107937618056, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: playerObj
-      value: 
+    - target: {fileID: 202171107937618058, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 202171107937618063, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 202171107937618063, guid: 395aa2aea951e574598da4f78a2fdcaf, type: 3}
       propertyPath: m_LocalPosition.x
