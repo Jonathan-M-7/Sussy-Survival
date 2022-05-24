@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     void Launch()
     {
         Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
     }
 
     
