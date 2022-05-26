@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    private float spawnRange = 3.0f;
+    private float spawnRange = 1.0f;
     public int enemyCount;
     public int waveNumber = 1;
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
         enemyCount = FindObjectsOfType<Enemy>().Length;
 
-        if (enemyCount == 0)
+        if (enemyCount == 1)
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);

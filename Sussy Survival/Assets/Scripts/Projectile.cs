@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
-    float speed = 15f;
+    public float speed = 15f;
 
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         rigidbody2d.velocity = transform.right * speed;
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         Destroy(gameObject, 1.5f);
@@ -28,13 +28,5 @@ public class Projectile : MonoBehaviour
     public void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(direction * force);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
-    }
+    } 
 }

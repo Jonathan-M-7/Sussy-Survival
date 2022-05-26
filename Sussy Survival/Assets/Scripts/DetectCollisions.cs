@@ -15,9 +15,12 @@ public class DetectCollisions : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+       if (col.gameObject.tag.Equals("Bullet"))
+        {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+       }
     }
 }
