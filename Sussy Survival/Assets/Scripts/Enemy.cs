@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame*1
+    // Update is called once per frame
     void Update()
     {
         Vector3 direction = player.position - transform.position;
